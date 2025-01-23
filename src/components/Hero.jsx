@@ -1,12 +1,6 @@
-import heroImage from "../assets/hero.jpg";
 function Hero() {
   return (
     <div className="bg-black text-white py-16 text-center">
-      <img
-        src={heroImage}
-        alt=""
-        className="mx-auto mb-8 w-48 h-48 rounded-full object-cover transform transition-transform duration-300 hover:scale-105"
-      />
       <h1 className="text-4xl font-bold">
         I&apos;m{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500">
@@ -27,7 +21,7 @@ function Hero() {
         </button>
         <a
           href="/resume.pdf" 
-          download="UmarFarooq_Resume.pdf" 
+          download="resume.pdf" 
           className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-bold py-2 px-4 rounded-full
              transform transition-transform duration-300 hover:scale-105"
         >
