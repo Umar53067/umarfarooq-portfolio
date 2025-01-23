@@ -24,7 +24,7 @@ function Projects() {
             name: "Chatbot",
             technologies :"React, JavaScript, HTML, CSS",
             image : ChatbotImage,
-            github : "https://chatbot-app-rust.vercel.app/"
+            github : "https://github.com/Umar53067/chatbot-app"
           }
     ]
   
