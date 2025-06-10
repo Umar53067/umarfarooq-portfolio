@@ -1,5 +1,5 @@
 import WeatherImage from '../assets/weather.PNG'
-import ChatbotImage from '../assets/chatbot.PNG'
+import AdminImage from '../assets/admin.PNG'
 import EcommerceImage from '../assets/ecommerce.PNG'
 
 function Projects() {
@@ -20,10 +20,10 @@ function Projects() {
     },
     {
       id: 3,
-      name: "Chatbot",
-      technologies: "React, JavaScript, HTML, CSS",
-      image: ChatbotImage,
-      github: "https://github.com/Umar53067/chatbot-app"
+      name: "E-commerce App",
+      technologies: "React, JavaScript, Express , MongoDB, Tailwind CSS",
+      image: AdminImage,
+      github: "https://github.com/Umar53067/ecommerce-mern"
     }
   ]
 
