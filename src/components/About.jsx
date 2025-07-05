@@ -25,7 +25,6 @@ function About() {
                 { label: "Node.js", width: "w-9/12" },
                 { label: "Express.js", width: "w-11/12" },
                 { label: "MongoDB", width: "w-10/12" },
-                { label: "SQL", width: "w-11/12" },
               ].map((skill) => (
                 <div className="flex items-center gap-4" key={skill.label}>
                   <span className="w-28 sm:w-32 text-sm sm:text-base">{skill.label}</span>

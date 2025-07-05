@@ -24,8 +24,16 @@ function Projects() {
       technologies: "React, JavaScript, Express , MongoDB, Tailwind CSS",
       image: AdminImage,
       github: "https://github.com/Umar53067/ecommerce-mern"
+    },
+    {
+      id: 4,
+      name: "Blog App",
+      technologies: "React, JavaScript, Express , MongoDB, Tailwind CSS",
+      image: AdminImage,
+      github: "https://github.com/Umar53067/blog-mern"
     }
   ]
+  
 
   return (
     <div className='bg-white dark:bg-black text-black dark:text-white py-20 transition-colors duration-300' id="projects">

@@ -55,17 +55,16 @@ function Navbar() {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-white dark:bg-black text-black dark:text-white px-4 py-4 space-y-4 transition-colors duration-300`}>
         <a href="#home" className="hover:text-gray-600 dark:hover:text-gray-400 block">Home</a>
-        <a href="#about" className="hover:text-gray-600 dark:hover:text-gray-400 block">About Me</a>
+        <a href="#about" className="hover:text-gray-600 dark:hover:text-gray-400 block">About</a>
         <a href="#projects" className="hover:text-gray-600 dark:hover:text-gray-400 block">Projects</a>
         <a href="#services" className="hover:text-gray-600 dark:hover:text-gray-400 block">Services</a>
         <a href="#contact" className="hover:text-gray-600 dark:hover:text-gray-400 block">Contact</a>
-
-        <div className="flex justify-between items-center">
-          <ThemeToggle />
+        <ThemeToggle />
+          
           <a href="#contact" className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-4 rounded-full w-full text-center transform transition-transform duration-300 hover:scale-105 mt-2 block">
             Hire Me
           </a>
-        </div>
+       
       </div>
     </nav>
   );
