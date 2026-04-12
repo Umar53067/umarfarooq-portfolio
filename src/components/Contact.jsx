@@ -1,91 +1,165 @@
-/* eslint-disable react/no-unescaped-entities */
-import { FaEnvelope, FaMapMarkedAlt, FaPhone } from 'react-icons/fa';
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { FaEnvelope, FaMapMarkedAlt, FaPhone } from "react-icons/fa";
 
 function Contact() {
-  return (
-    <div className="bg-white dark:bg-black text-black dark:text-white py-20 transition-colors duration-300" id="contact">
-      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
-        <h2 className="text-4xl font-bold text-center mb-12">Contact With Me</h2>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-        <div className="flex flex-col md:flex-row gap-12 items-start">
-          {/* Contact Info */}
-          <div className="flex-1 space-y-6">
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_ui4nqco",
+        "template_m8ozurj",
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        },
+        "PfX-5T9_dvZ7LKElw"
+      )
+      .then(
+        () => {
+          alert("Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+          setLoading(false);
+        },
+        (error) => {
+          alert("Failed to send message");
+          console.log(error);
+          setLoading(false);
+        }
+      );
+  };
+
+  return (
+    <section
+      id="contact"
+      className="bg-white dark:bg-black text-black dark:text-white py-24 transition-colors duration-300"
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+        {/* Heading */}
+        <div className="mb-16 max-w-2xl">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            Contact
+          </h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm md:text-base">
+            Have a project in mind or need a developer for your team? Let’s build something impactful.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+
+          {/* LEFT SIDE */}
+          <div className="space-y-10">
+
             <div>
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text mb-2">
-                Let's Talk
+              <h3 className="text-2xl md:text-3xl font-semibold">
+                Let’s Work Together
               </h3>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                I'm open to discuss web development projects or partnership opportunities.
+
+              <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                I’m currently open to freelance and full-time opportunities.
+                I specialize in .NET backend systems, APIs, and React apps.
               </p>
             </div>
 
-            <div className="space-y-4 text-gray-700 dark:text-gray-300">
-              <div className="flex items-center">
-                <FaEnvelope className="text-green-400 mr-3 text-lg" />
-                <a href="mailto:umarfarooq53067@gmail.com" className="hover:underline">
+            <div className="space-y-4">
+
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+                <FaEnvelope className="text-green-400" />
+                <a href="mailto:umarfarooq53067@gmail.com" className="text-sm">
                   umarfarooq53067@gmail.com
                 </a>
               </div>
 
-              <div className="flex items-center">
-                <FaPhone className="text-green-400 mr-3 text-lg" />
-                <span>+92-308-9184744</span>
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+                <FaPhone className="text-green-400" />
+                <span className="text-sm">+92-308-9184744</span>
               </div>
 
-              <div className="flex items-center">
-                <FaMapMarkedAlt className="text-green-400 mr-3 text-lg" />
-                <span>Lahore, Pakistan</span>
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-gray-100 dark:bg-gray-800">
+                <FaMapMarkedAlt className="text-green-400" />
+                <span className="text-sm">Lahore, Pakistan</span>
               </div>
+
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="flex-1 w-full">
-            <form className="space-y-6">
+          {/* RIGHT SIDE FORM */}
+          <div className="bg-gray-100 dark:bg-gray-800 p-8 rounded-2xl">
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+
               <div>
-                <label htmlFor="name" className="block mb-2 text-sm font-semibold">
-                  Name
-                </label>
+                <label className="block mb-2 text-sm font-medium">Name</label>
                 <input
                   type="text"
-                  className="w-full rounded-lg p-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white focus:border-green-400 focus:outline-none transition-colors"
-                  placeholder="Enter your name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className="w-full p-3 rounded-lg bg-white dark:bg-black border"
+                  required
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block mb-2 text-sm font-semibold">
-                  Email
-                </label>
+                <label className="block mb-2 text-sm font-medium">Email</label>
                 <input
                   type="email"
-                  className="w-full rounded-lg p-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white focus:border-green-400 focus:outline-none transition-colors"
-                  placeholder="Enter your email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="Your email"
+                  className="w-full p-3 rounded-lg bg-white dark:bg-black border"
+                  required
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block mb-2 text-sm font-semibold">
-                  Message
-                </label>
+                <label className="block mb-2 text-sm font-medium">Message</label>
                 <textarea
-                  className="w-full rounded-lg p-3 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white focus:border-green-400 focus:outline-none transition-colors"
                   rows="5"
-                  placeholder="Enter your message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..."
+                  className="w-full p-3 rounded-lg bg-white dark:bg-black border"
+                  required
                 />
               </div>
 
               <button
                 type="submit"
-                className="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-2 px-10 rounded-full hover:scale-105 transition-transform duration-300"
+                disabled={loading}
+                className="w-full bg-gradient-to-r from-green-400 to-blue-500 
+                text-white font-semibold py-3 rounded-full"
               >
-                Send
+                {loading ? "Sending..." : "Send Message"}
               </button>
+
             </form>
+
           </div>
+
         </div>
+
       </div>
-    </div>
+    </section>
   );
 }
 
