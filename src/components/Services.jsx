@@ -2,85 +2,82 @@ function Services() {
   const services = [
     {
       id: "01",
-      title: "Full-Stack Web Application Development (.NET + React)",
+      title: "Full-Stack Development",
       description:
-        "Building scalable web applications using .NET (MVC/Web API) for backend and React for modern, responsive frontends with clean architecture.",
+        "Building scalable web applications using .NET for backend and React for modern, responsive frontends with clean architecture.",
     },
     {
       id: "02",
-      title: ".NET Backend & API Development",
+      title: ".NET Backend & APIs",
       description:
-        "Designing and developing secure, high-performance REST APIs using ASP.NET Core with proper layering, validation, and business logic.",
+        "Designing secure, high-performance REST APIs using ASP.NET Core with proper layering, validation, and business logic.",
     },
     {
       id: "03",
-      title: "Enterprise Application Development (MVC)",
+      title: "Enterprise Systems",
       description:
-        "Developing enterprise-level applications using ASP.NET MVC with structured architecture, role-based systems, and production-ready features.",
+        "Developing enterprise-level applications using ASP.NET MVC with structured architecture, and production-ready features.",
     },
     {
       id: "04",
-      title: "Frontend Development (React + Tailwind / Bootstrap)",
+      title: "Frontend Engineering",
       description:
-        "Creating fast, responsive, and user-friendly interfaces using React along with Tailwind CSS or Bootstrap for modern UI design.",
+        "Creating fast, responsive, and user-friendly interfaces using React along with Tailwind CSS for modern UI design.",
     },
     {
       id: "05",
-      title: "Authentication & Authorization Systems",
+      title: "Authentication Systems",
       description:
-        "Implementing secure authentication and role-based access control using JWT, Identity, and session-based authentication in .NET applications.",
+        "Implementing secure authentication and role-based access control using JWT, Identity, and session-based logic.",
     },
     {
       id: "06",
-      title: "Database Design & Integration",
+      title: "Database Integration",
       description:
-        "Designing and integrating databases using SQL Server, Firebase, or Supabase with optimized queries and efficient data handling.",
+        "Designing and integrating databases using SQL Server, Firebase, or Supabase with optimized queries.",
     },
   ];
 
   return (
-    <section
-      id="services"
-      className="bg-white dark:bg-black text-black dark:text-white py-24 transition-colors duration-300"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <section id="services" className="py-24 relative">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
-        {/* Heading (LEFT ALIGNED) */}
-        <div className="mb-16 max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            My Services
+        {/* Heading */}
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            Services<span className="text-accent">.</span>
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm md:text-base">
+          <div className="w-20 h-1 bg-white/20 rounded-full mb-6"></div>
+          <p className="text-gray-400 text-lg max-w-2xl">
             I build scalable backend systems, modern frontends, and real-world business applications using .NET and React.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
             <div
               key={service.id}
-              className="group relative bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl border border-transparent 
-              hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300 hover:shadow-lg"
+              className="group glass-card p-8 relative overflow-hidden"
             >
+              
+              {/* Subtle hover background glow */}
+              <div className="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-accent/20 rounded-full blur-[50px] transition-opacity duration-500 opacity-0 group-hover:opacity-100"></div>
 
               {/* Number */}
-              <span className="absolute top-4 right-4 text-4xl font-bold opacity-10">
+              <div className="text-5xl font-black text-white/[0.03] absolute top-4 right-4 select-none">
                 {service.id}
-              </span>
+              </div>
 
               {/* Title */}
-              <h3 className="text-lg font-semibold mb-3 leading-snug">
+              <h3 className="text-xl font-semibold text-white mb-4 relative z-10">
                 {service.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed relative z-10">
                 {service.description}
               </p>
-
-              {/* Bottom Accent */}
-              <div className="mt-6 h-[2px] w-0 bg-gradient-to-r from-green-400 to-blue-500 transition-all duration-300 group-hover:w-full"></div>
 
             </div>
           ))}

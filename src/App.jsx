@@ -5,20 +5,21 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Projects from "./components/Projects"
 import Services from "./components/Services"
-
+import Experience from "./components/Experience"
 
 function App() {
-
   return (
     <>
-    <Navbar/>
-    <Hero/>
-    <About/>
-    <Services/>
-    <Projects/>
-    <Contact/>
-    <Footer/>
-
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Services />
+        <Projects />
+        <Experience />
+        <Contact />
+      </main>
+      <Footer />
     </>
   )
 }

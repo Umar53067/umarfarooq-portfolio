@@ -33,50 +33,51 @@ function Experience() {
   ];
 
   return (
-    <section
-      id="experience"
-      className="bg-white dark:bg-black text-black dark:text-white py-24 transition-colors duration-300"
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <section id="experience" className="py-24 relative">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
 
-        {/* Heading (CONSISTENT LEFT STYLE) */}
-        <div className="mb-16 max-w-2xl">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-            Experience
+        {/* Heading */}
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-center md:text-left">
+            Experience<span className="text-accent">.</span>
           </h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm md:text-base">
+          <div className="w-20 h-1 bg-white/20 rounded-full mb-6 mx-auto md:mx-0"></div>
+          <p className="text-gray-400 text-lg text-center md:text-left">
             My professional journey building scalable systems, APIs, and real-world applications.
           </p>
         </div>
 
         {/* Timeline */}
-        <div className="relative border-l border-gray-300 dark:border-gray-700 pl-6 space-y-10">
+        <div className="relative border-l-2 border-white/10 pl-8 space-y-12 ml-4 md:ml-0">
 
-          {experiences.map((exp, index) => (
+          {experiences.reverse().map((exp, index) => (
             <div key={index} className="relative group">
 
-              {/* ICON */}
-              <div className="absolute -left-[18px] top-2 bg-white dark:bg-black p-1 rounded-full">
-                <FaBriefcase className="text-green-400 text-lg" />
-              </div>
+              {/* Glowing Dot */}
+              <div className="absolute -left-[41px] top-5 w-5 h-5 rounded-full bg-background border-4 border-accent shadow-[0_0_15px_rgba(0,112,243,0.5)]"></div>
 
               {/* CARD */}
-              <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-2xl 
-              border border-transparent hover:border-gray-300 dark:hover:border-gray-700 
-              transition-all duration-300 hover:shadow-xl">
+              <div className="glass-card p-6 md:p-8">
 
-                {/* Role */}
-                <h3 className="text-lg md:text-xl font-semibold">
-                  {exp.role}
-                </h3>
-
-                {/* Company + Duration */}
-                <p className="text-sm text-green-400 font-medium mt-1">
-                  {exp.company} • {exp.duration}
-                </p>
+                {/* Header: Role and Duration */}
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white">
+                      {exp.role}
+                    </h3>
+                    <p className="text-base font-medium text-gray-300 mt-1">
+                      {exp.company}
+                    </p>
+                  </div>
+                  <div className="mt-2 md:mt-0">
+                    <span className="inline-block px-3 py-1 text-xs font-medium bg-white/10 text-gray-300 rounded-full border border-white/5">
+                      {exp.duration}
+                    </span>
+                  </div>
+                </div>
 
                 {/* Description */}
-                <p className="text-gray-700 dark:text-gray-300 text-sm mt-3 leading-relaxed">
+                <p className="text-gray-400 text-sm md:text-base leading-relaxed">
                   {exp.description}
                 </p>
 
