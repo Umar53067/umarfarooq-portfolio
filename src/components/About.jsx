@@ -74,6 +74,7 @@ function About() {
                   "Web API",
                   "React",
                   "Tailwind CSS",
+                  "Bootstrap",
                   "SQL Server",
                   "Firebase",
                   "Supabase",
@@ -96,7 +97,7 @@ function About() {
           {[
             { value: "1+", label: "Years Experience" },
             { value: "10+", label: "Projects Built" },
-            { value: "Real", label: "Production Systems" },
+            { value: "2", label: "Companies" },
           ].map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center justify-center">
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
